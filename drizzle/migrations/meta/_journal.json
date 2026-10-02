@@ -8,6 +8,13 @@
       "when": 1790906636434,
       "tag": "0000_create_youskin_profiles_and_analyses",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790906854597,
+      "tag": "0001_secure_profile_trigger_function",
+      "breakpoints": true
     }
   ]
 }
