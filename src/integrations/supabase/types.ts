@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          concerns: string[]
+          created_at: string
+          display_name: string | null
+          id: string
+          skin_type: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          concerns?: string[]
+          created_at?: string
+          display_name?: string | null
+          id: string
+          skin_type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          concerns?: string[]
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          skin_type?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      skin_analyses: {
+        Row: {
+          created_at: string
+          hydration: number
+          id: string
+          photo_path: string | null
+          recommendations: Json
+          sensitivity: number
+          summary: string
+          texture: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          hydration: number
+          id?: string
+          photo_path?: string | null
+          recommendations?: Json
+          sensitivity: number
+          summary: string
+          texture: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          hydration?: number
+          id?: string
+          photo_path?: string | null
+          recommendations?: Json
+          sensitivity?: number
+          summary?: string
+          texture?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
