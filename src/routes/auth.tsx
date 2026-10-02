@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AuthPanel } from "@/components/youskin/AuthPanel";
 import { Petals } from "@/components/youskin/Petals";
+import { BloomIntro } from "@/components/youskin/BloomIntro";
 import portrait from "@/assets/youskin-portrait.jpg";
 
 export const Route = createFileRoute("/auth")({
@@ -16,5 +17,5 @@ export const Route = createFileRoute("/auth")({
 });
 
 function AuthPage() {
-  return <main className="auth-page"><Petals /><AuthPanel /><aside className="auth-visual"><img src={portrait} alt="Woman with luminous skin beside cherry blossoms" width={1024} height={1280} /><div className="auth-visual-copy"><p>Rooted in science.<br /><em>Made for your skin.</em></p><span>Personalized rituals · Thoughtful results</span></div></aside></main>;
+  return <main className="auth-page"><BloomIntro /><Petals /><AuthPanel /><aside className="auth-visual"><img src={portrait} alt="Woman with luminous skin beside cherry blossoms" width={1024} height={1280} /><div className="auth-visual-copy"><p>Rooted in science.<br /><em>Made for your skin.</em></p><span>Personalized rituals · Thoughtful results</span></div></aside></main>;
 }

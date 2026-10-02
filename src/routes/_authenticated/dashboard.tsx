@@ -72,10 +72,10 @@ function Dashboard() {
       <section className="dashboard-grid">
         <article className="upload-card">
           <div className="section-heading"><span>01</span><div><h2>Meet your skin</h2><p>Upload a clear, makeup-free photo in natural light.</p></div></div>
-          <button className="photo-drop" type="button" onClick={() => inputRef.current?.click()} aria-label="Upload face photo">
+          <Button className="photo-drop" variant="ghost" type="button" onClick={() => inputRef.current?.click()} aria-label="Upload face photo">
             <img src={preview ?? portrait} alt={preview ? "Your selected face photo" : "Example face photo"} width={1024} height={1280} />
             <span className="photo-overlay"><Camera />{preview ? "Change photo" : "Upload your photo"}</span>
-          </button>
+          </Button>
           <input ref={inputRef} className="sr-only" type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => selectPhoto(event.target.files?.[0])} />
           <div className="privacy-note"><ShieldCheck /><span><strong>Your photo stays private</strong>Used only for your analysis and never shared.</span></div>
           <Button size="lg" className="w-full" onClick={analyze} disabled={analyzing}>{analyzing ? <><WandSparkles className="animate-pulse" /> Reading your skin...</> : preview ? <><ScanFace /> Analyze my skin</> : <><Upload /> Choose a face photo</>}</Button>

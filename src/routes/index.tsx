@@ -1,7 +1,11 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/")({
-  beforeLoad: () => { throw redirect({ to: "/auth" }); },
+  beforeLoad: async () => {
+    const { data } = await supabase.auth.getUser();
+    throw redirect({ to: data.user ? "/dashboard" : "/auth" });
+  },
   head: () => ({ meta: [
     { title: "YouSkin — Personal AI Skincare" },
     { name: "description", content: "Understand your skin and discover a thoughtful skincare routine made for you." },

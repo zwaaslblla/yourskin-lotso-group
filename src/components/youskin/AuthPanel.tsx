@@ -78,7 +78,7 @@ export function AuthPanel() {
         </form>
         <div className="auth-divider"><span>or continue with</span></div>
         <Button variant="outline" size="lg" className="w-full" onClick={handleGoogle} disabled={loading}><span className="google-mark">G</span>Google</Button>
-        <p className="auth-switch">{mode === "signin" ? "New to YouSkin?" : "Already have an account?"} <button type="button" onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }}>{mode === "signin" ? "Create an account" : "Sign in"}</button></p>
+        <div className="auth-switch">{mode === "signin" ? "New to YouSkin?" : "Already have an account?"} <Button type="button" variant="link" onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }}>{mode === "signin" ? "Create an account" : "Sign in"}</Button></div>
       </div>
     </section>
   );
