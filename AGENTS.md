@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep authenticated user experiences under the `_authenticated` route layout so browser session checks happen before private screens render.
+- Persist user-specific skincare results in Lovable Cloud with owner-scoped row policies so analysis history remains private.
