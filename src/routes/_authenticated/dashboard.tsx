@@ -29,14 +29,13 @@ function Dashboard() {
   const [preview, setPreview] = useState<string>();
   const [analyzing, setAnalyzing] = useState(false);
   const [history, setHistory] = useState<Analysis[]>([]);
-  const [showIntro, setShowIntro] = useState(true);
+  const [welcomeIntro] = useState(() => typeof window !== "undefined" && window.sessionStorage.getItem("youskin-welcome") === "true");
   const [activeAnalysis, setActiveAnalysis] = useState<Analysis>({ id: "demo", hydration: 72, texture: 84, sensitivity: 38, summary: "Your skin looks balanced and resilient, with a little room for extra hydration and barrier support.", created_at: new Date().toISOString() });
   const name = String(user.user_metadata?.display_name ?? user.user_metadata?.full_name ?? "Beautiful").split(" ")[0];
 
   useEffect(() => {
     const isWelcome = window.sessionStorage.getItem("youskin-welcome") === "true";
     if (isWelcome) window.sessionStorage.removeItem("youskin-welcome");
-    setShowIntro(true);
     supabase.from("skin_analyses").select("id,hydration,texture,sensitivity,summary,created_at").order("created_at", { ascending: false }).limit(6).then(({ data }) => { if (data) setHistory(data); });
   }, []);
 
@@ -64,7 +63,7 @@ function Dashboard() {
   }
 
   return <main className="dashboard-page">
-    {showIntro && <BloomIntro welcome={window.sessionStorage?.getItem("youskin-welcome") === "true"} />}
+    <BloomIntro welcome={welcomeIntro} />
     <Petals />
     <header className="dashboard-header"><BrandMark compact /><nav><Button variant="ghost" size="sm" aria-label="Analysis history"><History /> History</Button><Button variant="ghost" size="icon" aria-label="Sign out" onClick={signOut}><LogOut /></Button></nav></header>
     <div className="dashboard-shell">
