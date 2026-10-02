@@ -31,7 +31,7 @@ function Dashboard() {
   const [history, setHistory] = useState<Analysis[]>([]);
   const [welcomeIntro] = useState(() => typeof window !== "undefined" && window.sessionStorage.getItem("youskin-welcome") === "true");
   const [activeAnalysis, setActiveAnalysis] = useState<Analysis>({ id: "demo", hydration: 72, texture: 84, sensitivity: 38, summary: "Your skin looks balanced and resilient, with a little room for extra hydration and barrier support.", created_at: new Date().toISOString() });
-  const name = String(user.user_metadata?.display_name ?? user.user_metadata?.full_name ?? "Beautiful").split(" ")[0];
+  const name = String(user.user_metadata?.["display_name"] ?? user.user_metadata?.["full_name"] ?? "Beautiful").split(" ")[0];
 
   useEffect(() => {
     const isWelcome = window.sessionStorage.getItem("youskin-welcome") === "true";
